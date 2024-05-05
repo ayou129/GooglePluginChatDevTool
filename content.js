@@ -8,10 +8,10 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
             var popup = document.createElement('div');
             popup.id = 'chatToolDiv';
             popup.style.position = 'absolute';
-            popup.style.top = '300px'; // 往下一些
+            popup.style.top = '0'; // 往下一些
             popup.style.right = '0';
-            popup.style.width = '600px';
-            popup.style.height = '800px';
+            popup.style.width = '400px';
+            // popup.style.height = '500px';
             popup.style.background = '#fff';
             popup.style.border = '1px solid #ccc';
             popup.style.padding = '20px';
@@ -42,7 +42,7 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
                     <input type="checkbox" id="onlyCode" checked>
                     <label for="onlyCode">只写代码，不用解释</label><br>
                     </div>
-                    <textarea id="context" style="width: 95%; height: 200px; margin-top: 10px;"></textarea>
+                    <textarea id="context" style="width: 95%; height: 150px; margin-top: 10px;"></textarea>
                     <hr style="margin-top: 20px; margin-bottom: 20px;"> <!-- 添加分割线 -->
                     <!-- 新增单选项 -->
                     <div class="select">
@@ -97,7 +97,9 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
                 var contextText = document.getElementById('context').value;
 
                 // 获取单选项的值
-                var selectedRadio = document.querySelector('input[name="ChatType"]:checked').value;
+                // 获取单选项的值
+                var selectedRadio = document.querySelector('.select input[type="radio"]:checked').value;
+
 
                 // 拼凑文本
                 var summary = "";
@@ -117,8 +119,12 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
                 if (selectedRadio === 'ChatGPT') {
                     targetDiv = document.getElementById('prompt-textarea');
                     if (targetDiv) {
-                        targetDiv.innerText = ''; // 清空
-                        targetDiv.innerText = summary;
+                        targetDiv.value = ''; // 清空
+                        targetDiv.value = summary;
+                        // 强制重新渲染
+                        requestAnimationFrame(function () {
+                            // 空操作，只是为了触发重新渲染
+                        });
                     }
                 } else if (selectedRadio === 'Gemini') {
                     var textarea = document.querySelector('.ql-editor textarea');
