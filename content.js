@@ -121,16 +121,30 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
                     if (targetDiv) {
                         targetDiv.value = ''; // 清空
                         targetDiv.value = summary;
-                        // 强制重新渲染
-                        requestAnimationFrame(function () {
-                            // 空操作，只是为了触发重新渲染
+
+                        // 手动触发 input 事件
+                        var event = new Event('input', {
+                            bubbles: true,
+                            cancelable: true,
                         });
+                        targetDiv.dispatchEvent(event);
                     }
                 } else if (selectedRadio === 'Gemini') {
-                    var textarea = document.querySelector('.ql-editor textarea');
+                    var textarea = document.querySelector('.ql-editor.ql-blank.textarea');
                     if (textarea) {
-                        textarea.innerHTML = `<p>${summary}</p>`;
+                        var pElement = document.querySelector('.ql-editor p');
+                        if (pElement) {
+                            pElement.innerHTML = summary;
+                            var event = new Event('input', {
+                                bubbles: true,
+                                cancelable: true,
+                            });
+                            pElement.dispatchEvent(event);
+                        }
+                    } else {
+                        console.log('Gemini 没有找到textarea');
                     }
+
                 }
                 // 如果还有其他单选项需要处理，可以在这里添加更多的条件分支
             });
