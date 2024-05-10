@@ -1,10 +1,14 @@
 {
   "manifest_version": 3,
-  "name": "ChatTool",
+  "name": "ChatDevTool",
   "version": "1.0",
-  "description": "A simple Chrome extension",
+  "icons": {
+    "128": "Google128x128.png"
+  },
+  "description": "a tool to help efficiently use the chat llm model",
   "permissions": [
-    "tabs"
+    "tabs",
+    "activetab"
   ],
   "action": {
     "default_popup": "popup.html"
