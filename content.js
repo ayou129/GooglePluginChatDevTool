@@ -73,12 +73,12 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
                     <div class="select">
                         <label class="exclude" for="style">风格</label>
                         <textarea id="style" class="cus_textarea"
-                        placeholder="请使用简洁易懂的语言进行解释。">请使用简洁易懂的语言进行解释。</textarea>
+                        placeholder="">- 简洁易懂，符合 C++ 编程规范。\n- 代码结构清晰，易于理解和维护。\n- 注释完整，解释清楚函数和变量的用途。</textarea>
                     </div>
                     <div class="select">
                         <label class="exclude" for="tone">语调</label>
                         <textarea id="tone" class="cus_textarea"
-                        placeholder="请以一种积极和乐于助人的语气回应我的请求">请以一种积极和乐于助人的语气回应我的请求</textarea>
+                        placeholder="请以一种积极和乐于助人的语气回应我的请求"></textarea>
                     </div>
                     <div class="select">
                         <label class="exclude" for="audience">受众</label>
@@ -88,7 +88,7 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
                     <div class="select">
                         <label class="exclude" for="format">格式</label>
                         <textarea id="format" class="cus_textarea"
-                        placeholder="使用中文回答所有内容包括注释\n-写出完整代码\n-只写出涉及到修改的代码\n-不用着重描述，我更关注代码实现\n-附上示例代码">使用中文回答所有\n-写出完整代码\n-只写出涉及到修改的代码\n-不用着重描述，我更关注代码实现\n-附上示例代码</textarea>
+                        placeholder="使用中文回答所有问题。\n提供完整代码，无需过多描述。\n代码示例格式化排版，便于阅读。">使用中文回答所有问题。\n提供完整代码，无需过多描述。\n代码示例格式化排版，便于阅读。</textarea>
                     </div>
                     
                 </div>
