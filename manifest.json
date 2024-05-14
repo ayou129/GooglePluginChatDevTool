@@ -7,8 +7,7 @@
   },
   "description": "a tool to help efficiently use the chat llm model",
   "permissions": [
-    "tabs",
-    "activetab"
+    "activeTab"
   ],
   "action": {
     "default_popup": "popup.html"
