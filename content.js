@@ -73,7 +73,7 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
                     <div class="select">
                         <label class="exclude" for="style">风格</label>
                         <textarea id="style" class="cus_textarea"
-                        placeholder="">- 简洁易懂，符合 C++ 编程规范。\n- 代码结构清晰，易于理解和维护。\n- 注释完整，解释清楚函数和变量的用途。</textarea>
+                        placeholder="">- 简洁易懂，符合 C++ 编程规范。\n- 代码结构清晰，易于理解和维护。\n- 注释完整，解释清楚函数和变量的用途。\n- 如果改动较小，则只写出关键修改的代码</textarea>
                     </div>
                     <div class="select">
                         <label class="exclude" for="tone">语调</label>
